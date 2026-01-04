@@ -6,7 +6,7 @@ Create custom SEO-friendly pages within Discourse's layout.
 
 - Simple admin interface
 - Custom meta titles and descriptions
-- Clean URLs (`/about` instead of `/t/12345`)
+- Clean URLs (`/pizza` instead of `/t/12345`)
 - Pages stay within Discourse's header/footer/sidebar layout
 - HTML content support
 
