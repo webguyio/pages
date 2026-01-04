@@ -38,7 +38,7 @@ Then rebuild:
 2. Click "New Page"
 3. Fill in title, slug, and HTML content
 4. Add optional SEO meta title and description
-5. Save
+5. Publish
 
 Your page is live at `https://yoursite.com/your-slug`
 

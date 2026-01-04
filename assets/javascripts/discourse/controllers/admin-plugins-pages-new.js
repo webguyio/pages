@@ -37,7 +37,7 @@ export default class AdminPluginsPagesNewController extends Controller {
 			}
 
 			this.toasts.success('Page created');
-			this.router.transitionTo('adminPlugins.pages.index');
+			this.router.transitionTo('adminPlugins.pages');
 		} catch (error) {
 			this.toasts.error('An error occurred');
 		}
@@ -45,6 +45,6 @@ export default class AdminPluginsPagesNewController extends Controller {
 
 	@action
 	cancel() {
-		this.router.transitionTo('adminPlugins.pages.index');
+		this.router.transitionTo('adminPlugins.pages');
 	}
 }
