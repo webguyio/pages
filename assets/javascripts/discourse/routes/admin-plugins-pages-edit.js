@@ -3,6 +3,6 @@ import { ajax } from 'discourse/lib/ajax';
 
 export default class AdminPluginsPagesEditRoute extends Route {
 	model(params) {
-		return ajax(`/admin/plugins/pages/${params.id}/edit`);
+		return ajax(`/pages-admin/${params.id}/edit`);
 	}
 }

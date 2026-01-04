@@ -21,7 +21,7 @@ export default class AdminPluginsPagesNewController extends Controller {
 		};
 
 		try {
-			const response = await fetch('/admin/plugins/pages', {
+			const response = await fetch('/pages-admin', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

@@ -21,7 +21,7 @@ export default class AdminPluginsPagesEditController extends Controller {
 		};
 
 		try {
-			const response = await fetch(`/admin/plugins/pages/${this.model.id}`, {
+			const response = await fetch(`/pages-admin/${this.model.id}`, {
 				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json',

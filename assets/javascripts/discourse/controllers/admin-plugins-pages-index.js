@@ -10,7 +10,7 @@ export default class AdminPluginsPagesIndexController extends Controller {
 	async deletePage(page) {
 		if (confirm('Delete this page?')) {
 			try {
-				const response = await fetch(`/admin/plugins/pages/${page.id}`, {
+				const response = await fetch(`/pages-admin/${page.id}`, {
 					method: 'DELETE',
 					headers: { 'X-CSRF-Token': getCsrfToken() }
 				});
