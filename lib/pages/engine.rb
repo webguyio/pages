@@ -7,7 +7,7 @@ module Pages
 	end
 end
 
-require_relative '../pages/page'
-require_relative '../pages/page_serializer'
-require_relative '../pages/pages_controller'
-require_relative '../pages/admin_controller'
+require_relative 'page'
+require_relative 'page_serializer'
+require_relative 'pages_controller'
+require_relative 'admin_controller'

@@ -23,19 +23,23 @@ after_initialize do
 		end
 	end
 
+	Pages::Engine.routes.draw do
+		get '/' => 'admin#index'
+		get '/list' => 'admin#list'
+		get '/new' => 'admin#new'
+		post '/' => 'admin#create'
+		get '/:id/edit' => 'admin#edit'
+		put '/:id' => 'admin#update'
+		delete '/:id' => 'admin#destroy'
+	end
+
 	Discourse::Application.routes.append do
-		get '/admin/plugins/pages' => 'pages/admin#index'
-		get '/admin/plugins/pages/list' => 'pages/admin#list'
-		get '/admin/plugins/pages/new' => 'pages/admin#new'
-		post '/admin/plugins/pages' => 'pages/admin#create'
-		get '/admin/plugins/pages/:id/edit' => 'pages/admin#edit'
-		put '/admin/plugins/pages/:id' => 'pages/admin#update'
-		delete '/admin/plugins/pages/:id' => 'pages/admin#destroy'
+		mount ::Pages::Engine, at: '/admin/plugins/pages', constraints: AdminConstraint.new
 		get '/:slug' => 'pages/pages#show', constraints: lambda { |req|
 			slug = req.path.sub('/', '')
 			Pages.enabled_slugs.include?(slug)
 		}
 	end
 
-	add_admin_route 'pages.title', 'pages', use_new_show_route: true
+	add_admin_route 'pages.title', 'pages'
 end
