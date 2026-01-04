@@ -1,0 +1,5 @@
+en:
+  pages:
+    title: "Pages"
+  site_settings:
+    pages_enabled: "Enable the Pages plugin"

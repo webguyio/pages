@@ -1,0 +1,28 @@
+en:
+  js:
+    pages:
+      title: "Pages"
+      admin:
+        title: "Pages"
+        new_page: "New Page"
+        edit_page: "Edit Page"
+        save: "Save"
+        cancel: "Cancel"
+        delete: "Delete"
+        edit: "Edit"
+        no_pages: "No pages yet. Create your first page."
+        table:
+          title: "Title"
+          slug: "Slug"
+          status: "Status"
+          actions: "Actions"
+          published: "Published"
+          draft: "Draft"
+        form:
+          title: "Title"
+          slug: "Slug (URL)"
+          slug_help: "Leave blank to auto-generate from title"
+          content: "Content (HTML)"
+          meta_title: "SEO Title (optional)"
+          meta_description: "SEO Description (optional)"
+          enabled: "Published"

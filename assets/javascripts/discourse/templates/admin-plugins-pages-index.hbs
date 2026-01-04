@@ -1,0 +1,38 @@
+<div class="pages-admin">
+	<h2>{{i18n "pages.admin.title"}}</h2>
+	<div class="pages-header">
+		<LinkTo @route="adminPlugins.pages.new" class="btn btn-primary">
+			{{i18n "pages.admin.new_page"}}
+		</LinkTo>
+	</div>
+
+	{{#if model.pages.length}}
+		<table class="pages-list">
+			<thead>
+				<tr>
+					<th>{{i18n "pages.admin.table.title"}}</th>
+					<th>{{i18n "pages.admin.table.slug"}}</th>
+					<th>{{i18n "pages.admin.table.status"}}</th>
+					<th>{{i18n "pages.admin.table.actions"}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each model.pages as |page|}}
+					<tr>
+						<td>{{page.title}}</td>
+						<td><code>/{{page.slug}}</code></td>
+						<td>{{if page.enabled (i18n "pages.admin.table.published") (i18n "pages.admin.table.draft")}}</td>
+						<td>
+							<LinkTo @route="adminPlugins.pages.edit" @model={{page.id}} class="btn btn-small">
+								{{i18n "pages.admin.edit"}}
+							</LinkTo>
+							<DButton @action={{fn this.deletePage page}} @label="pages.admin.delete" class="btn-danger btn-small" />
+						</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	{{else}}
+		<p>{{i18n "pages.admin.no_pages"}}</p>
+	{{/if}}
+</div>
