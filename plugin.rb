@@ -41,5 +41,5 @@ after_initialize do
 		}
 	end
 
-	add_admin_route 'pages.title', 'pages'
+	add_admin_route 'pages.title', 'pages', use_new_show_route: true
 end
