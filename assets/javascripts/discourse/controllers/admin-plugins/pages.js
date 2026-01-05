@@ -1,10 +1,10 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
-import { getCsrfToken } from 'discourse/lib/ajax';
 
 export default class AdminPluginsPagesIndexController extends Controller {
 	@service toasts;
+	@service session;
 
 	@action
 	async deletePage(page) {
@@ -12,7 +12,7 @@ export default class AdminPluginsPagesIndexController extends Controller {
 			try {
 				const response = await fetch(`/pages-admin/${page.id}`, {
 					method: 'DELETE',
-					headers: { 'X-CSRF-Token': getCsrfToken() }
+					headers: { 'X-CSRF-Token': this.session.get('csrfToken') }
 				});
 				if (!response.ok) {
 					this.toasts.error('Failed to delete page');

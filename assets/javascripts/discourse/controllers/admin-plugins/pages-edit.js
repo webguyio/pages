@@ -1,11 +1,11 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
-import { getCsrfToken } from 'discourse/lib/ajax';
 
 export default class AdminPluginsPagesEditController extends Controller {
 	@service router;
 	@service toasts;
+	@service session;
 
 	@action
 	async save() {
@@ -24,7 +24,7 @@ export default class AdminPluginsPagesEditController extends Controller {
 				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json',
-					'X-CSRF-Token': getCsrfToken()
+					'X-CSRF-Token': this.session.get('csrfToken')
 				},
 				body: JSON.stringify(data)
 			});
