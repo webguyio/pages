@@ -42,10 +42,6 @@ Then rebuild:
 
 Your page is live at `https://yoursite.com/your-slug`
 
-## Settings
-
-- `pages_enabled` - Enable/disable plugin (default: true)
-
 ## License
 
 Public Domain
