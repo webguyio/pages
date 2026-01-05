@@ -14,16 +14,15 @@ export default class AdminPluginsPagesIndexController extends Controller {
 					method: 'DELETE',
 					headers: { 'X-CSRF-Token': getCsrfToken() }
 				});
-
 				if (!response.ok) {
 					this.toasts.error('Failed to delete page');
 					return;
 				}
-
 				this.model.pages.removeObject(page);
 				this.toasts.success('Page deleted');
 			} catch (error) {
-				this.toasts.error('An error occurred');
+				console.error('Delete error:', error);
+				this.toasts.error(error.message || 'An error occurred');
 			}
 		}
 	}

@@ -1,35 +1,35 @@
-<div class="pages-form">
+<div id="pages" class="pages-form">
 	<h2>{{i18n "pages.admin.edit_page"}}</h2>
 
 	<div class="control-group">
 		<label>{{i18n "pages.admin.form.title"}}</label>
-		<Input @type="text" @value={{model.title}} class="input-xxlarge" />
+		<Input @type="text" @value={{this.model.title}} class="input-xxlarge" />
 	</div>
 
 	<div class="control-group">
 		<label>{{i18n "pages.admin.form.slug"}}</label>
-		<Input @type="text" @value={{model.slug}} class="input-xxlarge" />
+		<Input @type="text" @value={{this.model.slug}} class="input-xxlarge" />
 		<p class="help">{{i18n "pages.admin.form.slug_help"}}</p>
 	</div>
 
 	<div class="control-group">
 		<label>{{i18n "pages.admin.form.content"}}</label>
-		<Textarea @value={{model.content}} class="input-xxlarge" rows="15" />
+		<Textarea @value={{this.model.content}} class="input-xxlarge" rows="15" />
 	</div>
 
 	<div class="control-group">
 		<label>{{i18n "pages.admin.form.meta_title"}}</label>
-		<Input @type="text" @value={{model.meta_title}} class="input-xxlarge" />
+		<Input @type="text" @value={{this.model.meta_title}} class="input-xxlarge" />
 	</div>
 
 	<div class="control-group">
 		<label>{{i18n "pages.admin.form.meta_description"}}</label>
-		<Textarea @value={{model.meta_description}} class="input-xxlarge" rows="3" />
+		<Textarea @value={{this.model.meta_description}} class="input-xxlarge" rows="3" />
 	</div>
 
 	<div class="control-group">
 		<label>
-			<Input @type="checkbox" @checked={{model.enabled}} />
+			<Input @type="checkbox" @checked={{this.model.enabled}} />
 			{{i18n "pages.admin.form.enabled"}}
 		</label>
 	</div>

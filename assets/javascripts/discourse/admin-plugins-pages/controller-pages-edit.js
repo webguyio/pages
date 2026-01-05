@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 import { service } from '@ember/service';
 import { getCsrfToken } from 'discourse/lib/ajax';
 
-export default class AdminPluginsPagesNewController extends Controller {
+export default class AdminPluginsPagesEditController extends Controller {
 	@service router;
 	@service toasts;
 
@@ -19,27 +19,33 @@ export default class AdminPluginsPagesNewController extends Controller {
 				enabled: this.model.enabled
 			}
 		};
-
 		try {
-			const response = await fetch('/pages-admin', {
-				method: 'POST',
+			const response = await fetch(`/pages-admin/${this.model.id}`, {
+				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json',
 					'X-CSRF-Token': getCsrfToken()
 				},
 				body: JSON.stringify(data)
 			});
-
 			if (!response.ok) {
-				const error = await response.json();
-				this.toasts.error(error.errors?.join(', ') || 'Failed to create page');
+				let errorMessage = 'Failed to update page';
+				try {
+					const error = await response.json();
+					if (error.errors?.length) {
+						errorMessage = error.errors.join(', ');
+					}
+				} catch (parseError) {
+					errorMessage = `Server error: ${response.status} ${response.statusText}`;
+				}
+				this.toasts.error(errorMessage);
 				return;
 			}
-
-			this.toasts.success('Page created');
+			this.toasts.success('Page updated');
 			this.router.transitionTo('adminPlugins.pages');
 		} catch (error) {
-			this.toasts.error('An error occurred');
+			console.error('Save error:', error);
+			this.toasts.error(error.message || 'An error occurred');
 		}
 	}
 
