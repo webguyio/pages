@@ -16,7 +16,8 @@ export default class AdminPluginsPagesNewController extends Controller {
 				content: this.model.content,
 				meta_title: this.model.meta_title,
 				meta_description: this.model.meta_description,
-				enabled: this.model.enabled
+				enabled: this.model.enabled,
+				themed: this.model.themed
 			}
 		};
 		try {

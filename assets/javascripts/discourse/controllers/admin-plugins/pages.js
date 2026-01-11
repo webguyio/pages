@@ -21,8 +21,8 @@ export default class AdminPluginsPagesIndexController extends Controller {
 					this.toasts.error('Failed to delete page');
 					return;
 				}
-				this.model.pages.removeObject(page);
 				await response.json();
+				this.model.pages.removeObject(page);
 				this.toasts.success('Page deleted');
 			} catch (error) {
 				console.error('Delete error:', error);
