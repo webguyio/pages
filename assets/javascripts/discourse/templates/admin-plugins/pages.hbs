@@ -19,7 +19,7 @@
 			<tbody>
 				{{#each this.model.pages as |page|}}
 					<tr>
-						<td>{{page.title}}</td>
+						<td><a href="/{{page.slug}}" target="_blank" rel="noopener noreferrer">{{page.title}}</a></td>
 						<td><code>/{{page.slug}}</code></td>
 						<td>{{if page.enabled (i18n "pages.admin.table.published") (i18n "pages.admin.table.draft")}}</td>
 						<td>

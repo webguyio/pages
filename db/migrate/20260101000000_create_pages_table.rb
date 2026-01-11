@@ -9,6 +9,7 @@ class CreatePagesTable < ActiveRecord::Migration[7.0]
 			t.string :meta_title
 			t.text :meta_description
 			t.boolean :enabled, default: true, null: false
+			t.boolean :themed, default: true, null: false
 			t.integer :user_id, null: false
 			t.timestamps
 		end

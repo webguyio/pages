@@ -35,6 +35,13 @@
 	</div>
 
 	<div class="control-group">
+		<label>
+			<Input @type="checkbox" @checked={{this.model.themed}} />
+			{{i18n "pages.admin.form.themed"}}
+		</label>
+	</div>
+
+	<div class="control-group">
 		<DButton @action={{fn this.save}} @label="pages.admin.save" class="btn-primary" />
 		<DButton @action={{fn this.cancel}} @label="pages.admin.cancel" />
 	</div>

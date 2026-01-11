@@ -55,7 +55,7 @@ module Pages
 		private
 
 		def page_params
-			params.require(:page).permit(:title, :slug, :content, :meta_title, :meta_description, :enabled)
+			params.require(:page).permit(:title, :slug, :content, :meta_title, :meta_description, :enabled, :themed)
 		end
 	end
 end
