@@ -24,6 +24,7 @@ export default class AdminPluginsPagesNewController extends Controller {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
+					'Accept': 'application/json',
 					'X-CSRF-Token': this.session.get('csrfToken')
 				},
 				body: JSON.stringify(data)
@@ -41,7 +42,6 @@ export default class AdminPluginsPagesNewController extends Controller {
 				this.toasts.error(errorMessage);
 				return;
 			}
-			await response.json();
 			this.toasts.success('Page created');
 			this.router.transitionTo('adminPlugins.pages');
 		} catch (error) {
