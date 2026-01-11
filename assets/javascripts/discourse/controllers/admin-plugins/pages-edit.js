@@ -44,8 +44,11 @@ export default class AdminPluginsPagesEditController extends Controller {
 				return;
 			}
 			await response.json();
-			this.toasts.success('Page updated');
-			this.router.transitionTo('adminPlugins.pages');
+			this.router.transitionTo('adminPlugins.pages').then(() => {
+				setTimeout(() => {
+					this.toasts.success('Page updated');
+				}, 100);
+			});
 		} catch (error) {
 			console.error('Save error:', error);
 			this.toasts.error(error.message || 'An error occurred');
